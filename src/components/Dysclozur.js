@@ -1,6 +1,6 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
-// import { ApplicationViews } from "./ApplicationViews"
+import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
@@ -10,8 +10,8 @@ export const Dysclozur = () => (
         <Route render={() => {
             if (localStorage.getItem("d_token")) {
                 return <>
-                    <Route render={NavBar} />
-                    {/* <Route render={props => <ApplicationViews {...props} />} /> */}
+                    <NavBar />
+                    <ApplicationViews />
                 </>
             } else {
                 return <Redirect to="/login" />
@@ -22,3 +22,6 @@ export const Dysclozur = () => (
         <Route path="/register" render={Register} />
     </>
 )
+
+{/* <Route render={NavBar} />
+                    <Route render={props => <ApplicationViews {...props} />} /> */}
