@@ -6,10 +6,10 @@ export const NavBar = (props) => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-                <Link className="nav-link" to='/'>Games</Link>
+                <Link className="nav-link" to='/'>Home</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-link" to='/events'>Events</Link>
+                <Link className="nav-link" to='/events'>+Add Post</Link>
             </li>
             <li className="navbar__item">
                 <Link className="nav-link" to='/profile'>My Profile</Link>
