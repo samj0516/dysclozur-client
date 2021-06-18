@@ -8,11 +8,14 @@ export const PostList = props =>{
 
     useEffect(() => {
         getPosts()
+        
     }, [])
-
+    
+   
+    const sortedPosts = posts.sort((a, b) => new Date(b.date_posted) - new Date(a.date_posted))
     return(
         <>
-        {posts.map(post => <PostCard key={post.id} post={post}/>)}
+        {sortedPosts.map(post => <PostCard key={post.id} post={post}/>)}
         </>
     )
 }
