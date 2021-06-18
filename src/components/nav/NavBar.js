@@ -1,37 +1,39 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
-
+// import '../../css/mystyles.css'
 export const NavBar = (props) => {
     return (
-        <ul className="navbar">
-            <li className="navbar__item">
-                <Link className="nav-link" to='/'>Home</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="nav-link" to='/posts/create'>+Add Post</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="nav-link" to='/profile'>My Profile</Link>
-            </li>
+        <nav className="navbar is-primary is-fixed-bottom" role="navigation" aria-label="main navigation">
+        <div className="navbar-menu">
+            <div className="navbar-start">
+                <Link className="navbar-item" to='/'>Home</Link>
+            </div>
+            <div className="navbar-item">
+                <Link className="navbar-item" to='/posts/create'>+Add Post</Link>
+            </div>
+            <div className="navbar-item">
+                <Link className="navbar-item" to='/profile'>My Profile</Link>
+            </div>
             {
                 (localStorage.getItem("d_token") !== null) ?
-                    <li className="nav-item">
-                        <button className="nav-link fakeLink"
+                    <div className="navbar-item">
+                        <button className="button navbar-item is-primary fakeLink"
                             onClick={() => {
                                 localStorage.removeItem("d_token")
                                 props.history.push({ pathname: "/" })
                             }}
                         >Logout</button>
-                    </li> :
+                    </div> :
                     <>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
-                        </li>
+                        <div className="navbar-item">
+                            <Link className="navbar-link" to="/login">Login</Link>
+                        </div>
+                        <div className="navbar-item">
+                            <Link className="navbar-link" to="/register">Register</Link>
+                        </div>
                     </>
-            }        </ul>
+            }        </div>
+        </nav>
     )
 }

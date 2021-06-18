@@ -1,6 +1,7 @@
 {
   "name": "dysclozur-client",
   "version": "0.1.0",
+  "main": "src/sass/mystyles.scss",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.13.0",

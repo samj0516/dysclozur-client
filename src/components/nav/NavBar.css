@@ -4,7 +4,7 @@
     justify-content: left;
 }
 
-.navbar__item {
+.navbar-item {
     flex-basis: 20%;
     list-style-type: none;
 }
