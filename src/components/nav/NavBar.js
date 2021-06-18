@@ -5,8 +5,8 @@ import "./NavBar.css"
 export const NavBar = (props) => {
     return (
         <nav className="navbar is-primary is-fixed-bottom" role="navigation" aria-label="main navigation">
-        <div className="navbar-menu">
-            <div className="navbar-start">
+        
+            <div className="navbar-item">
                 <Link className="navbar-item" to='/'>Home</Link>
             </div>
             <div className="navbar-item">
@@ -33,7 +33,7 @@ export const NavBar = (props) => {
                             <Link className="navbar-link" to="/register">Register</Link>
                         </div>
                     </>
-            }        </div>
+            }        
         </nav>
     )
 }
