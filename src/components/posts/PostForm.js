@@ -8,6 +8,8 @@ export const PostForm = () => {
     const { postId } = useParams();
     const history = useHistory();
     const [isLoading, setIsLoading] = useState(true);
+    const [image, setImage] = useState([])
+    const [video, setVideo] = useState([])
     const [validMsg, setValidMsg] = useState("");
     const [post, setPost] = useState({
         date_posted: "",
@@ -31,6 +33,22 @@ export const PostForm = () => {
             setIsLoading(false)
         }
     },[postId])
+
+    const getBase64 = (file, callback) => {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => callback(reader.result));
+        reader.readAsDataURL(file);
+    } 
+
+     //handle controlled input change and convert the image to a format that can be sent to server
+     const createBase64String = (event) => {
+        getBase64(event.target.files[0], (base64ImageString) => {
+            console.log("Base64 of file is", base64ImageString);
+    
+            // Update a component state variable to the value of base64ImageString
+            setImage(base64ImageString)
+        });
+    }
 
     const handleControlledInputChange = (event) => {
         const newPost = { ...post }
@@ -98,8 +116,8 @@ export const PostForm = () => {
             link: post.link,
             url_pic: post.url_pic,
             url_video: post.url_video,
-            upload_pic: post.upload_pic,
-            upload_video: post.upload_video
+            upload_pic: image,
+            upload_video: video
         })
         .then(setPost({  //reset state obj as blank to zero out add form
             title: "",
@@ -175,19 +193,19 @@ export const PostForm = () => {
         <fieldset>
         <div className="form-group">
             <label htmlFor="upload_pic">Upload Image: </label>
-            <input type="file" id="upload_pic" required className="form-control"
-            placeholder="Upload an Image"
-            onChange={handleControlledInputChange}
-            value={post.upload_pic}/>
+            <input type="file" id="upload_pic" onChange={createBase64String}/>
+            <input type="hidden" name="upload_pic" value={post.upload_pic} />
         </div>
         </fieldset>
+
+        {/* <input type="file" id="img" onChange={createProfileImageString} />
+                        <input type="hidden" name="img" value={image} /> */}
+
         <fieldset>
         <div className="form-group">
             <label htmlFor="upload_video">Upload Video: </label>
-            <input type="file" id="upload_video" required className="form-control"
-            placeholder="Upload Your video"
-            onChange={handleControlledInputChange}
-            value={post.upload_video}/>
+            <input type="file" id="upload_video" required className="form-control" onChange={createBase64String}/>
+            <input type="hidden" name="upload_video" value={post.upload_video} />
         </div>
         </fieldset>
 
