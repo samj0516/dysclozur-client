@@ -7,7 +7,7 @@ import { CommentContext } from './CommentProvider'
 export const CommentCard = ({ comment }) => {
     const history = useHistory()
     const { deleteComment } = useContext(CommentContext)
-    const currentUser = parseInt(localStorage.getItem('d_token'))
+    const currentUser = parseInt(localStorage.getItem('d_user'))
     const { postId } = useParams()
     
     const handleDelete = () => {
@@ -16,16 +16,16 @@ export const CommentCard = ({ comment }) => {
     }
     return(
         <section className="comment">
-            <p>{comment.user.avatar} {comment.user.user.username}</p>
-            <p>{comment.content}</p>
+            <p>{comment.user?.avatar} {comment.user?.user.username}</p>
+            <p>{comment.comment}</p>
             
 
-            {currentUser === comment.author.user.id ?  <button className="editButton" onClick={() => {
+            {currentUser == comment.user.id ?  <button className="editButton" onClick={() => {
                 history.push(`/posts/detail/editcomment/${comment.id}`)
             }}>E</button> : <div></div>}
             
             
-            {currentUser === comment.author.user.id ?  <button className="deleteButton" onClick={handleDelete}
+            {currentUser === comment.user.id ?  <button className="deleteButton" onClick={handleDelete}
                 >X</button> : <div></div>}
             
         </section>
