@@ -4,6 +4,7 @@ export const PostContext = createContext()
 
 export const PostProvider = props => {
     const [posts, setPosts] = useState([])
+    const [postDetail, setPostDetail] = useState({})
     const [ searchTerms, setSearchTerms ] = useState("")
     const headers = {
         "Authorization": `Token ${localStorage.getItem("d_token")}`,
@@ -21,6 +22,7 @@ export const PostProvider = props => {
             headers: headers
         })
             .then(res => res.json())
+            .then(setPostDetail)
             
     }
 
@@ -60,7 +62,7 @@ export const PostProvider = props => {
 
     return (
         <PostContext.Provider value={{
-            posts, getPosts, getPostById, addPost, updatePost, deletePost, postTagDelete, searchTerms, setSearchTerms
+            posts, getPosts, getPostById, postDetail, addPost, updatePost, deletePost, postTagDelete, searchTerms, setSearchTerms
         }}>
             {props.children}
         </PostContext.Provider>

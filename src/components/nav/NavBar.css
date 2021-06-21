@@ -3,8 +3,17 @@
     flex-wrap: nowrap;
     justify-content: left;
 }
-
+Link {
+    color: #ffff;
+}
+Link:visited {
+    color:#ffff
+}
+Link:hover {
+    color:blueviolet;
+}
 .navbar-item {
     flex-basis: 20%;
     list-style-type: none;
+    /* color:#ffff; */
 }
