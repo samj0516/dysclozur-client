@@ -5,7 +5,8 @@ import { PostProvider } from "./posts/PostProvider"
 import { PostForm } from './posts/PostForm'
 import {PostDetail} from './posts/PostDetail'
 import {CommentProvider} from './comments/CommentProvider'
-
+import { PostComments } from "./comments/PostComments"
+import { CommentForm } from './comments/CommentForm'
 
 export const ApplicationViews = () => {
     return <>
@@ -17,6 +18,8 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/posts/detail/:postId(\d+)">
                 <PostDetail />
+                <CommentForm />
+                <PostComments />
             </Route>
 
             <Route exact path="/posts/create">
