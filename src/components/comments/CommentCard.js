@@ -20,12 +20,12 @@ export const CommentCard = ({ comment }) => {
             <p>{comment.comment}</p>
             
 
-            {currentUser == comment.user.id ?  <button className="editButton" onClick={() => {
+            {currentUser == comment.user?.user.id ?  <button className="editButton" onClick={() => {
                 history.push(`/posts/detail/editcomment/${comment.id}`)
             }}>E</button> : <div></div>}
             
             
-            {currentUser === comment.user.id ?  <button className="deleteButton" onClick={handleDelete}
+            {currentUser === comment.user?.user.id ?  <button className="deleteButton" onClick={handleDelete}
                 >X</button> : <div></div>}
             
         </section>
