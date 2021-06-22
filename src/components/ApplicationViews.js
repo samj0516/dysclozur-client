@@ -22,6 +22,10 @@ export const ApplicationViews = () => {
                 <PostComments />
             </Route>
 
+            <Route exact path="/posts/detail/editcomment/:commentId(\d+)">
+                <CommentForm />
+            </Route>
+
             <Route exact path="/posts/create">
                 <PostForm />
             </Route>
