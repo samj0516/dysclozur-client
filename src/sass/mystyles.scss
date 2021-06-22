@@ -1,2 +1,30 @@
 @charset "utf-8";
 @import "./../../node_modules/bulma/bulma.sass";
+
+
+.postList{
+  margin: 0 auto;
+  
+}
+.post{
+    // max-width: fit-content;
+    text-align: center;
+    border:.1em solid black;
+    // padding-top: .3em;
+    // justify-content: center;
+    padding-bottom: .5em;
+    video{
+        align-self: center;
+        max-width: 90%;
+        max-height:fit-content;
+    }
+    img{
+        align-self: center;
+        max-width: 90%;
+        max-height:fit-content;
+    }
+}
+
+.postDetail{
+    margin: 0 auto;
+}

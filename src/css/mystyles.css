@@ -7757,3 +7757,22 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
+
+.postList {
+  margin: 0 auto; }
+
+.post {
+  text-align: center;
+  border: .1em solid black;
+  padding-bottom: .5em; }
+  .post video {
+    align-self: center;
+    max-width: 90%;
+    max-height: fit-content; }
+  .post img {
+    align-self: center;
+    max-width: 90%;
+    max-height: fit-content; }
+
+.postDetail {
+  margin: 0 auto; }

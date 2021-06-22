@@ -22,7 +22,7 @@ export const NavBar = (props) => {
             {
                 (localStorage.getItem("d_token") !== null) ?
                     <div className="navbar-item">
-                        <button className="button navbar-item is-primary fakeLink"
+                        <button className="button navbar-item is-dark fakeLink"
                             onClick={() => {
                                 localStorage.removeItem("d_token")
                                 props.history.push({ pathname: "/" })

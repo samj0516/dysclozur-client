@@ -4,10 +4,12 @@ import { useHistory, useParams } from 'react-router'
 import { PostContext } from './PostProvider'
 
 export const PostForm = () => {
-    const { addPost, getPostById, updatePost, deletePost } = useContext(PostContext)
+    const { addPost, getPostById, updatePost, deletePost, postDetail } = useContext(PostContext)
     const { postId } = useParams();
     const history = useHistory();
     const [isLoading, setIsLoading] = useState(true);
+    const [image, setImage] = useState(null)
+    const [video, setVideo] = useState(null)
     const [validMsg, setValidMsg] = useState("");
     const [post, setPost] = useState({
         date_posted: "",
@@ -25,12 +27,37 @@ export const PostForm = () => {
             getPostById(postId)
             .then(post => {
                 setPost(post)
-                setIsLoading(false)
-            })
-        } else {
+                setIsLoading(false)})
+            
+        }else {
             setIsLoading(false)
         }
     },[postId])
+
+    const getBase64 = (file, callback) => {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => callback(reader.result));
+        reader.readAsDataURL(file);
+    } 
+
+     //handle controlled input change and convert the image to a format that can be sent to server
+     const createBase64String = (event) => {
+        getBase64(event.target.files[0], (base64ImageString) => {
+            console.log("Base64 of file is", base64ImageString);
+    
+            // Update a component state variable to the value of base64ImageString
+            setImage(base64ImageString)
+        });
+    }
+
+    const createBase64VideoString = (event) => {
+        getBase64(event.target.files[0], (base64ImageString) => {
+            console.log("Base64 of file is", base64ImageString);
+    
+            // Update a component state variable to the value of base64ImageString
+            setVideo(base64ImageString)
+        });
+    }
 
     const handleControlledInputChange = (event) => {
         const newPost = { ...post }
@@ -43,7 +70,7 @@ export const PostForm = () => {
     // debugger
             deletePost(event.target.id)
             .then(() => {
-            history.push("/posts")
+            history.push("/")
             })
         }
     }
@@ -77,8 +104,8 @@ export const PostForm = () => {
             link: post.link,
             url_pic: post.url_pic,
             url_video: post.url_video,
-            upload_pic: post.upload_pic,
-            upload_video: post.upload_video
+            upload_pic: image,
+            upload_video: video
         })
         .then(() => history.push(`/posts/detail/${post.id}`))
         }else {
@@ -98,8 +125,8 @@ export const PostForm = () => {
             link: post.link,
             url_pic: post.url_pic,
             url_video: post.url_video,
-            upload_pic: post.upload_pic,
-            upload_video: post.upload_video
+            upload_pic: image,
+            upload_video: video
         })
         .then(setPost({  //reset state obj as blank to zero out add form
             title: "",
@@ -111,7 +138,7 @@ export const PostForm = () => {
             upload_video: ""
             
         }))
-        .then(setIsLoading(false))
+        // .then(setIsLoading(false))
         .then(() => history.push("/"))
         }
     }
@@ -120,13 +147,14 @@ export const PostForm = () => {
 
     return(
         <>
+        {console.log(post)}
         <form className="postForm">
         <h2 className="postForm__title">{postId ? "Edit Post" : "Add Post"}</h2>
 
             {validMsg.length > 0 ? "" : validMsg}
          <fieldset>
         <div className="form-group">
-            <label htmlFor="Title">Title:</label>
+            <label htmlFor="title">Title:</label>
             <input type="text" id="title" required autoFocus className="form-control"
             placeholder="Title"
             onChange={handleControlledInputChange}
@@ -175,19 +203,19 @@ export const PostForm = () => {
         <fieldset>
         <div className="form-group">
             <label htmlFor="upload_pic">Upload Image: </label>
-            <input type="file" id="upload_pic" required className="form-control"
-            placeholder="Upload an Image"
-            onChange={handleControlledInputChange}
-            value={post.upload_pic}/>
+            <input type="file" id="upload_pic" onChange={createBase64String}/>
+            <input type="hidden" name="upload_pic" value={image} />
         </div>
         </fieldset>
+
+        {/* <input type="file" id="img" onChange={createProfileImageString} />
+                        <input type="hidden" name="img" value={image} /> */}
+
         <fieldset>
         <div className="form-group">
             <label htmlFor="upload_video">Upload Video: </label>
-            <input type="file" id="upload_video" required className="form-control"
-            placeholder="Upload Your video"
-            onChange={handleControlledInputChange}
-            value={post.upload_video}/>
+            <input type="file" id="upload_video"  onChange={createBase64VideoString}/>
+            <input type="hidden" name="upload_video" value={image} />
         </div>
         </fieldset>
 
