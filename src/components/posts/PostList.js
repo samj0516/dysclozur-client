@@ -5,7 +5,7 @@ import { PostContext } from './PostProvider'
 
 export const PostList = props =>{
     const {posts, getPosts} = useContext(PostContext)
-
+    const currentUser = parseInt(localStorage.getItem('d_user'))
     useEffect(() => {
         getPosts()
         
@@ -15,7 +15,9 @@ export const PostList = props =>{
     const sortedPosts = posts.sort((a, b) => new Date(b.date_posted) - new Date(a.date_posted))
     return(
         <>
+        <div className="postList">
         {sortedPosts.map(post => <PostCard key={post.id} post={post}/>)}
+        </div>
         </>
     )
 }

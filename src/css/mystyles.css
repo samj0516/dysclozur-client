@@ -7758,5 +7758,21 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
+.postList {
+  margin: 0 auto; }
+
 .post {
-  padding-top: .3em; }
+  text-align: center;
+  border: .1em solid black;
+  padding-bottom: .5em; }
+  .post video {
+    align-self: center;
+    max-width: 90%;
+    max-height: fit-content; }
+  .post img {
+    align-self: center;
+    max-width: 90%;
+    max-height: fit-content; }
+
+.postDetail {
+  margin: 0 auto; }
