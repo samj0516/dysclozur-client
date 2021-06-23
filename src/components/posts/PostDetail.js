@@ -2,24 +2,58 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router'
 import { PostContext } from './PostProvider'
 import { Link } from 'react-router-dom'
+import { VoteContext } from '../votes/VoteProvider'
+
 
 export const PostDetail = () => {
     const { getPostById } = useContext(PostContext)
+    const { addPostVote } = useContext(VoteContext)
     const [postDetail, setPostDetail] = useState({})
     const {postId} = useParams()
     const currentUser = parseInt(localStorage.getItem('d_user'))
     // const history = useHistory()
-
+    // let postVoteCount = 0
     useEffect(() => {
         getPostById(postId)
         .then((res) => {
             setPostDetail(res)
+            // postVoteCount = res.vote_set.length
+             
         })
+        
+        // postVoteCount = postDetail.vote_set.length
         
     }, [])
 
+    const handleUpvote = () =>{
+        addPostVote({
+            post: postDetail.id,
+            upvote: true, 
+        }, postDetail.id
+
+        )
+        .then(() => getPostById(postId))
+        .then((res) => {
+            setPostDetail(res)
+        })
+    }
+
+    const handleDownvote = () =>{
+        addPostVote({
+            post: postDetail.id,
+            upvote: false, 
+        }, postDetail.id
+
+        )
+        .then(() => getPostById(postId))
+        .then((res) => {
+            setPostDetail(res)
+        })
+    }
+
     return (
         <>
+        <div className='container is-fluid'>
         <article className="post_detail">
            {postDetail.link ? <Link to={postDetail.link}>
             <h1 className="title">{postDetail.title}</h1>
@@ -34,7 +68,18 @@ export const PostDetail = () => {
             </video> : <></>}
             {postDetail.text ? <p>{postDetail.text}</p> : <> </>}
             {postDetail.link ? <p>{postDetail.link}</p> : <> </>}
+            <div className='postVote'>
+                <div className='upvote' onClick={handleUpvote}>
+                    <i className="fas fa-chevron-up"></i>
+                </div>
+                <p>{postDetail.vote_set?.length}</p>
+                <div className='upvote' onClick={handleDownvote}>
+                    <i className="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            
         </article>
+        </div>
         </>
     )
 }
