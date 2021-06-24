@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400&display=swap');
 
 html{
-    background:#a291b1; 
+    background:#a291b1 url('https://wallpaper.dog/large/20393704.png') no-repeat fixed center ; 
     // #d3bde5;
     // url('https://wallpaper.dog/large/20393704.png') no-repeat fixed center 
 }
@@ -24,11 +24,13 @@ html{
     max-width: 85%;
     // box-shadow: 0 4px 8px 0 #b3a1c3, 0 6px 20px 0 #f3d9ff;
     border-radius: 26px;
-    background: #a291b1;
+    background: #7ea09f;
     border-radius: 20px;
-    background: #a291b1;
-    box-shadow:  -8px 8px 16px #413a47,
-             8px -8px 16px #ffe8ff;
+    box-shadow: inset -17px 17px 26px #6f8d8c,
+            inset 17px -17px 26px #8db3b2;
+    // background: #a291b1;
+    // box-shadow:  -8px 8px 16px #413a47,
+    //          8px -8px 16px #ffe8ff;
     // box-shadow:  -17px 17px 62px #7b6e87,
     //          17px -17px 62px #c9b4db;
     // #d3bde5;

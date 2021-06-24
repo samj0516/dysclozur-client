@@ -18,8 +18,21 @@ export const Dysclozur = () => (
             }
         }} />
 
-        <Route path="/login" render={Login} />
-        <Route path="/register" render={Register} />
+        <Route path="/login" render={() => {
+            if (localStorage.getItem("d_token")) {
+                return <Redirect to="/" />
+            } else {
+                return <Login />
+            }
+        }} />
+
+        <Route path="/register" render={(props) => {
+            if (localStorage.getItem("d_token")) {
+                return <Redirect to="/" />
+            } else {
+                return <Register {...props} />
+            }
+        }} />
     </>
 )
 

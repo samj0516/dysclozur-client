@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import { VoteContext } from '../votes/VoteProvider'
 import { PostContext } from './PostProvider'
 export const PostCard = ({ post }) => {
-    // const history = useHistory()
+    const history = useHistory()
     const { addPostVote } = useContext(VoteContext)
-    const { getPosts } = useContext(PostContext)
+    const { getPosts, deletePost } = useContext(PostContext)
     const currentUser = parseInt(localStorage.getItem('d_user'))
     const postVoteCount = post.vote_set.length
 
@@ -31,6 +31,8 @@ export const PostCard = ({ post }) => {
         .then(getPosts)
     }
 
+    
+
     return (
         <div className="section has-text-centered">
         <article className="post">
@@ -44,6 +46,7 @@ export const PostCard = ({ post }) => {
             <p>{post.date_posted}</p>
             
             {currentUser === post.user.user.id ? <Link to={`/posts/detail/edit/${post.id}`}><i className="far fa-edit"></i></Link> : <></>}
+            
             </div>
             
             {post.url_pic ? <img src={post.url_pic} alt="article pic"/> : <></>}

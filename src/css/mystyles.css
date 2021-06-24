@@ -7760,7 +7760,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   padding: 3rem 1.5rem 6rem; }
 
 html {
-  background: #a291b1; }
+  background: #a291b1 url("https://wallpaper.dog/large/20393704.png") no-repeat fixed center; }
 
 .post {
   padding: 10px;
@@ -7769,10 +7769,9 @@ html {
   text-align: center;
   max-width: 85%;
   border-radius: 26px;
-  background: #a291b1;
+  background: #7ea09f;
   border-radius: 20px;
-  background: #a291b1;
-  box-shadow: -8px 8px 16px #413a47, 8px -8px 16px #ffe8ff; }
+  box-shadow: inset -17px 17px 26px #6f8d8c, inset 17px -17px 26px #8db3b2; }
   .post .postSubheading {
     display: flex;
     flex-wrap: nowrap;
