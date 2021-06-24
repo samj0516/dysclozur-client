@@ -147,8 +147,9 @@ export const PostForm = () => {
 
     return(
         <>
-        {console.log(post)}
-        <form className="postForm">
+        <div className="section has-text-centered"> 
+        {/* {console.log(post)} */}
+        <form className="post">
         <h2 className="postForm__title">{postId ? "Edit Post" : "Add Post"}</h2>
 
             {validMsg.length > 0 ? "" : validMsg}
@@ -242,6 +243,8 @@ export const PostForm = () => {
         }
 
         </form>
+
+        </div>
         </>
     )
 

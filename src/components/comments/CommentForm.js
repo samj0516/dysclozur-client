@@ -59,9 +59,10 @@ export const CommentForm = () => {
     }
 
     return (
+        <div className="section has-text-centered">
         <form className="commentForm">
             <h2 className="commentForm__title">{commentId ? "Edit Comment" : "Add Comment"}</h2>
-            <fieldset>
+            <fieldset className="post">
                 <div className="form-group">
                     <label htmlFor="comment">Comment</label>
                     <input type="text" id="comment" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="" value={comment.comment} />
@@ -76,5 +77,6 @@ export const CommentForm = () => {
                 {commentId ? "Save Edit" : "Add Comment"}
             </button>
         </form>
+        </div>
     )
 }

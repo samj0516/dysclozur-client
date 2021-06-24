@@ -32,22 +32,30 @@ export const PostCard = ({ post }) => {
     }
 
     return (
+        <div className="section has-text-centered">
         <article className="post">
+            <div className='postHeading'>
             <Link to={`/posts/detail/${post.id}`}>
-            <h4>{post.title}</h4>
+            <h4 className='subtitle is-3'>{post.title}</h4>
             </Link>
-            {currentUser === post.user.user.id ? <Link to={`/posts/detail/edit/${post.id}`}>EDIT</Link> : <></>}
-            <p>{post.date_posted}</p>
+            </div>
+            <div className='postSubheading'>
             <p>{post.user.user.username}</p>
+            <p>{post.date_posted}</p>
+            
+            {currentUser === post.user.user.id ? <Link to={`/posts/detail/edit/${post.id}`}><i className="far fa-edit"></i></Link> : <></>}
+            </div>
             
             {post.url_pic ? <img src={post.url_pic} alt="article pic"/> : <></>}
-            {post.upload_pic ? <img src={post.upload_pic} alt="uploaded pic" width="395" height="270"/> : <></>}
+            {post.upload_pic ? <img src={post.upload_pic} alt="uploaded pic" /> : <></>}
             {post.upload_video ? <video id="player" src={post.upload_video} controls>
             </video> : <></>}
-            {post.url_video ? <iframe id="player" type="text/html" width="395" height="270"
-            src={`http://www.youtube.com/embed/${post.url_video}?enablejsapi=1&origin=http://localhost:3000/`}></iframe> : <></>}
-            {post.text ? <p>{post.text}</p> : <> </>}
-            {post.link ? <p>{post.link}</p> : <> </>}
+            
+            {post.url_video ? <div className='videoWrapper'><iframe id="player" type="text/html" 
+            src={`http://www.youtube.com/embed/${post.url_video}?enablejsapi=1&origin=http://localhost:3000/`}></iframe></div> : <></>}
+            
+            {/* {post.text ? <p>{post.text}</p> : <> </>} */}
+            {/* {post.link ? <p>{post.link}</p> : <> </>} */}
             <div className='postVote'>
                 <div className='upvote' onClick={handleUpvote}>
                     <i className="fas fa-chevron-up"></i>
@@ -58,5 +66,6 @@ export const PostCard = ({ post }) => {
                 </div>
             </div>
         </article>
+        </div>
     )
 }
