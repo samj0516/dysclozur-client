@@ -21,10 +21,7 @@ export const Register = (props) => {
     const history = useHistory()
     
     
-    const martian = <img src="https://img.icons8.com/pastel-glyph/64/000000/martian.png"/>
-    const zoidberg = <img src="https://img.icons8.com/ios/50/000000/futurama-zoidberg.png"/>
-    const bbYoda = <img src="https://img.icons8.com/ios/50/000000/baby-yoda.png"/>
-    const slug = <img src="https://img.icons8.com/ios/50/000000/slug.png"/>
+    
     const handleRegister = (e) => {
         e.preventDefault()
 
@@ -62,13 +59,25 @@ export const Register = (props) => {
 
     let handleAvatarPick = (e) => {
         console.log(avatar)
-        let predator = "https://img.icons8.com/ios/50/000000/predator.png";
+        const predator = "https://img.icons8.com/ios/50/000000/predator.png";
+        const martian = <img src="https://img.icons8.com/pastel-glyph/64/000000/martian.png"/>
+        const zoidberg = <img src="https://img.icons8.com/ios/50/000000/futurama-zoidberg.png"/>
+        const bbYoda = <img src="https://img.icons8.com/ios/50/000000/baby-yoda.png"/>
+        const slug = <img src="https://img.icons8.com/ios/50/000000/slug.png"/>
         let pick = e.target.id
         // pick = avatar.current.value
         console.log(pick) 
         if (pick === "predator"){
             avatar.current = predator  
             console.log(avatar.current)
+        }else if (pick === "martian"){
+            avatar.current = martian
+        }else if (pick === "zoidberg"){
+            avatar.current = zoidberg
+        }else if (pick === "bbYoda"){
+            avatar.current = bbYoda
+        }else if (pick === "slug"){
+            avatar.current = slug
         }
         
     }
