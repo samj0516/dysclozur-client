@@ -55,7 +55,7 @@ export const PostCard = ({ post }) => {
             </video> : <></>}
             
             {post.url_video ? <div className='videoWrapper'><iframe id="player" type="text/html" 
-            src={`http://www.youtube.com/embed/${post.url_video}?enablejsapi=1&origin=http://localhost:3000/`}></iframe></div> : <></>}
+            src={`https://www.youtube.com/embed/${post.url_video}?enablejsapi=1&origin=https://60db875d908bd60aab3cf0f0--kind-raman-df5a12.netlify.app/`}></iframe></div> : <></>}
             
             {/* {post.text ? <p>{post.text}</p> : <> </>} */}
             {/* {post.link ? <p>{post.link}</p> : <> </>} */}
