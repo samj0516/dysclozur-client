@@ -16,7 +16,7 @@ export const CommentCard = ({ comment }) => {
     }
     return(
         <section className="comment">
-            <p>{comment.user?.avatar} {comment.user?.user.username}</p>
+           <img src={comment.user?.avatar} alt="avatar"/> <p>{comment.user?.user.username}</p>
             <p>{comment.comment}</p>
             
 

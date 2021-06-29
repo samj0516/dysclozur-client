@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import "./Auth.css"
 
 
@@ -7,7 +7,7 @@ export const Login = props => {
     const email = React.createRef()
     const password = React.createRef()
     const invalidDialog = React.createRef()
-
+    const history = useHistory()
     const handleLogin = (e) => {
         e.preventDefault()
 
@@ -28,7 +28,7 @@ export const Login = props => {
                     localStorage.setItem( "d_token", res.token )
                     console.log(res)
                     localStorage.setItem( "d_user", res.user_id)
-                    props.history.push("/")
+                    history.push("/")
                 }
                 else {
                     invalidDialog.current.showModal()

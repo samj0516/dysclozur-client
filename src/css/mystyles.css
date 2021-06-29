@@ -1,5 +1,6 @@
 /*! bulma.io v0.9.2 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400&display=swap");
 .button, .input, .textarea, .select select, .file-cta,
 .file-name, .pagination-previous,
 .pagination-next,
@@ -7758,21 +7759,71 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
-.postList {
-  margin: 0 auto; }
+html {
+  background: #a291b1 url("https://i.pinimg.com/originals/6c/c7/c9/6cc7c9a9623dbca3892866025859ddf0.jpg") no-repeat fixed center; }
 
 .post {
+  padding: 10px;
+  margin: 0 auto;
+  font-family: 'Exo 2', sans-serif;
   text-align: center;
-  border: .1em solid black;
-  padding-bottom: .5em; }
+  max-width: 85%;
+  border-radius: 26px;
+  background: #7ea09f;
+  border-radius: 20px;
+  box-shadow: inset -17px 17px 26px #6f8d8c, inset 17px -17px 26px #8db3b2; }
+  .post .postSubheading {
+    display: flex;
+    flex-wrap: nowrap;
+    align-self: center;
+    justify-content: space-evenly;
+    padding: 5px; }
+  .post .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0; }
   .post video {
     align-self: center;
-    max-width: 90%;
-    max-height: fit-content; }
+    max-width: 80%;
+    max-height: fit-content;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  .post iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
   .post img {
     align-self: center;
-    max-width: 90%;
-    max-height: fit-content; }
+    max-width: 80%;
+    max-height: fit-content;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
 .postVote {
-  text-align: center; }
+  text-align: center;
+  display: flex;
+  justify-content: center; }
+  .postVote .upvote {
+    margin: 0 15px 0 15px; }
+
+.commentForm {
+  margin: 0 auto;
+  padding-bottom: 90px;
+  align-self: center;
+  max-width: 90%;
+  text-align: center;
+  font-family: 'Exo 2', sans-serif; }
+  .commentForm .form-group {
+    align-content: center; }
+
+.postList {
+  margin: 0 auto;
+  padding-bottom: 60px; }
+
+.form-group input {
+  background-color: #c9b4db; }
+
+h1 .title {
+  font-weight: 200; }

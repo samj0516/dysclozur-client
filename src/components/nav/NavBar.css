@@ -2,15 +2,19 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    padding-top: -.3em;
+    /* margin-top: 3em; */
+    /* padding-top: -.3em; */
 }
 Link {
-    color: #ffff;
+    /* color: #ffff; */
 }
-Link:visited {
-    color:#ffff
+.navbar-item:visited {
+    color:rgb(203, 203, 203)
 }
-Link:hover {
+.navbar-item:active{
+    color:rgb(203, 203, 203)
+}
+.navbar-item:hover {
     color:blueviolet;
 }
 .navbar-item {
@@ -20,4 +24,8 @@ Link:hover {
 }
 .title{
     text-align: center;
+    color: #e6e6e6;
+    text-shadow: 4px -4px 8px #afafaf,
+    -4px 4px 8px #ffffff;
+    padding-top: 10px;
 }
