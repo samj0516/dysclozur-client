@@ -60,10 +60,10 @@ export const Register = (props) => {
     let handleAvatarPick = (e) => {
         console.log(avatar)
         const predator = "https://img.icons8.com/ios/50/000000/predator.png";
-        const martian = <img src="https://img.icons8.com/pastel-glyph/64/000000/martian.png"/>
-        const zoidberg = <img src="https://img.icons8.com/ios/50/000000/futurama-zoidberg.png"/>
-        const bbYoda = <img src="https://img.icons8.com/ios/50/000000/baby-yoda.png"/>
-        const slug = <img src="https://img.icons8.com/ios/50/000000/slug.png"/>
+        const martian = "https://img.icons8.com/pastel-glyph/64/000000/martian.png"
+        const zoidberg = "https://img.icons8.com/ios/50/000000/futurama-zoidberg.png"
+        const bbYoda = "https://img.icons8.com/ios/50/000000/baby-yoda.png"
+        const slug = "https://img.icons8.com/ios/50/000000/slug.png"
         let pick = e.target.id
         // pick = avatar.current.value
         console.log(pick) 
