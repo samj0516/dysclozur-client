@@ -10,15 +10,16 @@ export const PostProvider = props => {
         "Authorization": `Token ${localStorage.getItem("d_token")}`,
         "Content-Type": "application/json"
     }
+    
     const getPosts = () => {
-        return fetch(`http://localhost:8000/posts`,{
+        return fetch(`https://dysclozur.herokuapp.com/posts`,{
             headers: headers
         })
             .then(res => res.json())
             .then(setPosts)
     }
     const getPostById = (id) => {
-        return fetch(`http://localhost:8000/posts/${id}`, {
+        return fetch(`https://dysclozur.herokuapp.com/posts/${id}`, {
             headers: headers
         })
             .then(res => res.json())
@@ -27,7 +28,7 @@ export const PostProvider = props => {
     }
 
     const addPost = postObj => {
-        return fetch("http://localhost:8000/posts", {
+        return fetch("https://dysclozur.herokuapp.com/posts", {
             method: "POST",
             headers: headers,
             body: JSON.stringify(postObj)
@@ -36,7 +37,7 @@ export const PostProvider = props => {
     }
 
     const updatePost = post => {
-        return fetch(`http://localhost:8000/posts/${post.id}`, {
+        return fetch(`https://dysclozur.herokuapp.com/posts/${post.id}`, {
             method: "PUT",
             headers: headers,
             body: JSON.stringify(post)
@@ -45,7 +46,7 @@ export const PostProvider = props => {
     }
 
     const deletePost = postId => {
-        return fetch(`http://localhost:8000/posts/${postId}`, {
+        return fetch(`https://dysclozur.herokuapp.com/${postId}`, {
             method: "DELETE",
             headers: headers
         })
@@ -53,7 +54,7 @@ export const PostProvider = props => {
     }
 
     const postTagDelete = (postTagId) => {
-        return fetch(`http://localhost:8000/postTags/${postTagId}`, {
+        return fetch(`https://dysclozur.herokuapp.com/postTags/${postTagId}`, {
             method: "DELETE",
             headers: headers
         })

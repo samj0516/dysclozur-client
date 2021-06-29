@@ -12,7 +12,7 @@ export const VoteProvider = props => {
     }
 
     const getVotes = () => {
-        return fetch('http://localhost:8000/votes', {
+        return fetch('https://dysclozur.herokuapp.com/votes', {
             headers: headers
         })
         .then(res => res.json())
@@ -29,7 +29,7 @@ export const VoteProvider = props => {
     // }
 
     const addPostVote = (reactObj, post) => {
-        return fetch(`http://localhost:8000/votes`, {
+        return fetch(`https://dysclozur.herokuapp.com/votes`, {
             method: "POST",
             headers: headers,
             body: JSON.stringify(reactObj)

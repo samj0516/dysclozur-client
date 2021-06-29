@@ -12,7 +12,7 @@ export const CommentProvider = (props) => {
     }
 
     const getComments = () => {
-        return fetch("http://localhost:8000/comments", {
+        return fetch("https://dysclozur.herokuapp.com/comments", {
             headers: headers
         })
         .then(res => res.json())
@@ -20,7 +20,7 @@ export const CommentProvider = (props) => {
     }
 
     const addComment = commentObj => {
-        return fetch("http://localhost:8000/comments", {
+        return fetch("https://dysclozur.herokuapp.com/comments", {
             method: "POST",
             headers: headers,
             body: JSON.stringify(commentObj)
@@ -29,7 +29,7 @@ export const CommentProvider = (props) => {
     }
 
     const getCommentsByPostId = (postId) =>{
-        return fetch(`http://localhost:8000/comments?postId=${postId}`, {
+        return fetch(`https://dysclozur.herokuapp.com/comments?postId=${postId}`, {
             headers: headers
         })
         .then(res => res.json())
@@ -37,14 +37,14 @@ export const CommentProvider = (props) => {
     }
     
     const getCommentById = (id) => {
-        return fetch(`http://localhost:8000/comments/${id}`, {
+        return fetch(`https://dysclozur.herokuapp.com/comments/${id}`, {
             headers: headers
         })
             .then(res => res.json())
     }
 
     const deleteComment = (commentId, postId) => {
-        return fetch(`http://localhost:8000/comments/${commentId}`, {
+        return fetch(`https://dysclozur.herokuapp.com/comments/${commentId}`, {
             method: "DELETE",
             headers: headers
         })
@@ -52,7 +52,7 @@ export const CommentProvider = (props) => {
     }
 
     const updateComment = comment => {
-        return fetch(`http://localhost:8000/comments/${comment.id}`, {
+        return fetch(`https://dysclozur.herokuapp.com/comments/${comment.id}`, {
           method: "PUT",
           headers: headers,
           body: JSON.stringify(comment)
