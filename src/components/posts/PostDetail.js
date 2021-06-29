@@ -63,7 +63,7 @@ export const PostDetail = () => {
             <h2 className="date_posted">{postDetail.date_posted}</h2>
             {postDetail.url_pic ? <img src={postDetail.url_pic} alt="article pic"/> : <></>}
             {postDetail.url_video ? <div className='videoWrapper'><iframe id="player" type="text/html" 
-            src={`http://www.youtube.com/embed/${postDetail.url_video}?enablejsapi=1&origin=http://localhost:3000/`} width="395" height="270"></iframe></div> : <></>}
+            src={`https://www.youtube.com/embed/${postDetail.url_video}?enablejsapi=1&origin=https://kind-raman-df5a12.netlify.app`} width="395" height="270"></iframe></div> : <></>}
             {postDetail.upload_pic ? <img src={postDetail.upload_pic} alt="uploaded pic" width="395" height="270"/> : <></>}
             {postDetail.upload_video ? <video id="player" src={postDetail.upload_video} controls>
             </video> : <></>}
