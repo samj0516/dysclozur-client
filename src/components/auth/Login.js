@@ -60,10 +60,11 @@ export const Login = props => {
                         <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
                     </fieldset>
                 </form>
-            </section>
-            <section className="link--register">
+                 <section className="link--register">
                 <Link to="/register">Not a member yet?</Link>
+                </section>
             </section>
+           
         </main>
     )
 }
